@@ -17,4 +17,6 @@ $ git commit -m 'This is a change comment'
 Note you committed the local repository. In order to send changes, you need to push them:
 $ git push
 
+And you can check the status of the repository doing
+$ git status
 
