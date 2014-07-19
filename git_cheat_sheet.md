@@ -4,9 +4,11 @@
 
 Update the branch in local repository, getting contents from remote
 Go to the repository and then do:
+
 $ git pull
 
 Then suppose you change files and want to commit them. First you do:
+
 $ git add -A
 
 This adds all changes made to the next commit (commits are atomic), including file deletions.
