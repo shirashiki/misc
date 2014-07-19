@@ -11,19 +11,16 @@ Then suppose you change files and want to commit them. First you do:
 
 $ git add -A
 
-This adds all changes made to the next commit (commits are atomic), including file deletions.
+This adds all changes made to the next commit (commits are atomic), including file deletions. Now you can commit:
 
-Now you can commit:
 $ git commit -m 'This is a change comment'
 
 Note you committed the local repository. In order to send changes, you need to push them:
+
 $ git push
 
+And you can check the status of the repository doing:
 
-And lets do a merge
-
-=======
-And you can check the status of the repository doing
 $ git status
 
 
