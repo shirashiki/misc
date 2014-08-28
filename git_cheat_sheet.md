@@ -5,6 +5,9 @@
 - Make code changes more visible:
 `git config --global color.ui true`
 
+- Merging code: you can install Meld: http://www.meldmerge.org/
+
+
 ### Use scenarios
 
 #### Get files and update in remote master branch
