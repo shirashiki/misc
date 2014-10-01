@@ -1,5 +1,34 @@
 ### Documentum Development	
 
+#### Development tools setup
+
+##### Documentum Composer
+This describes how to setup Composer in Eclipse.
+
+Environment used
+
+Item | Description
+-----|--------
+Documentum | Documentum Developer Edition (7.1)
+Eclipse | Eclipse 3.7 Indigo, 32 bits
+Java | JRE 6, 32 bits
+OS | Windows 7
+
+**Installation steps**
+- If you already have a newer Eclipse, you need to install the old 3.7 to be able to use the Composer plugin.
+- Install Java JRE 6, 32 bits
+- Install Eclipse 3.7
+- In eclipse.ini, add the following parameter after `openFile`:
+```
+-vm
+C:\Program Files (x86)\Java\jre6\bin\javaw.exe
+```
+- Install composer plugin
+
+
+**Sources**
+http://paulcwarren.wordpress.com/2010/11/29/composer-on-helios/
+
 
 #### Creating a new Documentum WDK application
 
