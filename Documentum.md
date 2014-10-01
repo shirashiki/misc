@@ -1,8 +1,7 @@
 ### Documentum Development	
 
-#### Development tools setup
 
-##### Documentum Composer
+#### Documentum Composer setup
 This describes how to setup Composer in Eclipse.
 
 Environment used
@@ -23,11 +22,18 @@ OS | Windows 7
 -vm
 C:\Program Files (x86)\Java\jre6\bin\javaw.exe
 ```
-- Install composer plugin
+- Install composer plugin (see guide composer on helios)
 
 
 **Sources**
-http://paulcwarren.wordpress.com/2010/11/29/composer-on-helios/
+- [Installing Composer on Eclipse Helios](http://paulcwarren.wordpress.com/2010/11/29/composer-on-helios/)
+- [Composer FAQ](https://community.emc.com/docs/DOC-2487)
+- [Composer Demo](https://developer-content.emc.com/developer/devcenters/ContentManagement/D6/composer/demo1/composer_demo1.htm)
+- Introduction to Composer for DAB users: in Eclipse help, after installing Composer
+
+
+#### Install WDK Eclipse plugin
+
 
 
 #### Creating a new Documentum WDK application
