@@ -65,3 +65,5 @@ https://community.emc.com/docs/DOC-1286
 #### Sources
 - Web Development Kit 6.7 Development Guide. EMC Documentum
 - Web Development Kit 6.7 Tutorial. EMC Documentum
+- Building a Documentum Application Tutorial. EMC Documentum Composer 7.1
+
