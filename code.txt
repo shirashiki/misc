@@ -1,0 +1,253 @@
+XDocument doc = XDocument.Parse (pageContents);
+
+
+			foreach (var element in doc.Root.Elements().ToList()[0].Elements()) 
+			{
+				ri = new RssItem();
+				if (element.Name == "item")
+				{
+					ri.Title = element.Element("title").Value;
+					ri.Link = new Uri(element.Element("link").Value);
+					string dateStr = (string)element.Element ("pubDate").Value;
+
+					ri.Published = AsyncHelper.FormatDate (dateStr); 
+
+					if (element.Element("author") != null)
+						ri.Author = element.Element("author").Value;
+						
+					var d = element.Element("description");
+					ri.Description = d.Value;
+					int index = d.Value.IndexOf("src=");
+					if (index > -1)
+					{
+						int index2 = d.Value.IndexOf(ri.Description[index + 4] == '\"' ? '\"' : '\'', index + 5);
+						string str = d.Value.Substring(index + 5, index2 - index - 5);
+						#if __IOS__
+						ri.Image = UIImage.LoadFromData(NSData.FromUrl(new NSUrl(str)));
+						#else
+						ri.Image = BitmapFactory.DecodeStream((new Java.Net.URL(str)).OpenStream());
+						#endif
+					}
+					rssItemList.Add(ri);
+				}
+			}
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:cbc="http://www.cbc.ca/rss/cbc" version="2.0">
+  <channel>
+    <title><![CDATA[CBC | Top Stories News ]]></title>
+    <link>http://www.cbc.ca/news/?cmp=rss</link>
+    <description>
+      <![CDATA[
+      FOR PERSONAL USE ONLY
+      ]]>
+    </description>
+    <language>en-ca</language>
+    <lastBuildDate>Sun, 9 Nov 2014 11:38:20 EST</lastBuildDate>
+    <copyright><![CDATA[Copyright: (C) Canadian Broadcasting Corporation, http://www.cbc.ca/aboutcbc/discover/termsofuse.html#Rss]]></copyright>
+        <docs><![CDATA[http://www.cbc.ca/rss/]]></docs>
+    <image>
+      <title>CBC.ca</title>
+      <url>http://www.cbc.ca/rss/image/cbc_144.gif</url>
+      <link>http://www.cbc.ca/news/?cmp=rss</link>
+    </image>
+    <item cbc:type="story" cbc:deptid="2.633" cbc:syndicate="true">
+      <title><![CDATA[Stasi's massive surveillance kept tabs on East Germans at any cost]]></title>
+            <link>http://www.cbc.ca/news/world/berlin-wall-east-germans-lived-in-fear-under-stasi-surveillance-1.2829038?cmp=rss</link>
+      <guid isPermaLink="false">1.2829038</guid>
+      <pubDate>Sun, 9 Nov 2014 11:00:00 EST</pubDate>
+                        <author>Margaret Evans</author>
+      							      <category>News/World</category>
+      <description>
+        <![CDATA[
+                        <img title='Hohenschonhausen prison, a sterile factory-like building deep in East Berlin, is now a memorial tourist attraction. There were more than 100 interrogation rooms used by the Stasi along the prison’s dim-lit halls.' height='259' alt='Hohenschonhausen prison' width='460' src='http://i.cbc.ca/1.2829078.1415500039!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_460/hohenschonhausen-prison.jpg' />                <p>Among the memories being sifted through this weekend as Germans commemorate the fall of the Berlin Wall 25 years ago are those of life lived under the glare of the Stasi spotlight in the former German Democratic Republic.</p>
+        ]]>
+      </description>
+    </item>
+    <item cbc:type="story" cbc:deptid="2.636" cbc:syndicate="true">
+      <title><![CDATA[Harper's North Pole bid surprised government officials, internal emails suggest]]></title>
+            <link>http://www.cbc.ca/news/politics/stephen-harper-s-north-pole-bid-caught-bureaucrats-by-surprise-1.2829243?cmp=rss</link>
+      <guid isPermaLink="false">1.2829243</guid>
+      <pubDate>Sun, 9 Nov 2014 11:38:20 EST</pubDate>
+                        <author>Bob Weber</author>
+      							      <category>News/Politics</category>
+      <description>
+        <![CDATA[
+                        <img title='Prime Minister Stephen Harper comments on how cold the water of the Alsek River is on his hands as he picks up a piece of glacial ice as he visits Lowell Glacier in Kluane National Park, Yukon on Friday, August 26, 2011.' height='259' alt='HARPER ARCTIC' width='460' src='http://i.cbc.ca/1.2740723.1408467454!/cpImage/httpImage/image.jpg_gen/derivatives/16x9_460/harper-arctic.jpg' />                <p>New documents suggest that Canada's last-minute decision to stretch its claim to the Arctic seabed all the way to the North Pole took federal bureaucrats off-guard.</p>
+        ]]>
+      </description>
+    </item>
+    <item cbc:type="story" cbc:deptid="2.662" cbc:syndicate="true">
+      <title><![CDATA[Transit bus collides with car, killing 1 in northwest Toronto]]></title>
+            <link>http://www.cbc.ca/news/canada/toronto/ttc-bus-and-car-collide-killing-1-in-etobicoke-1.2829158?cmp=rss</link>
+      <guid isPermaLink="false">1.2829158</guid>
+      <pubDate>Sun, 9 Nov 2014 08:01:44 EST</pubDate>
+                        <author>CBC News</author>
+      										      <category>News/Canada/Toronto</category>
+      <description>
+        <![CDATA[
+                        <img title='Three people were in a Nissan Altima when it collided with a TTC bus early Sunday. One person in the car was killed and two were reported in critical condition in hospital.
+' height='259' alt='TTC bus-car collision' width='460' src='http://i.cbc.ca/1.2829165.1415546926!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_460/ttc-bus-car-collision.jpg' />                <p>Police say one person is dead and two critically injured after a crash involving a bus and a car in north Etobicoke.</p>
+        ]]>
+      </description>
+    </item>
+    <item cbc:type="story" cbc:deptid="2.633" cbc:syndicate="true">
+      <title><![CDATA['Enough, I'm tired': Mexican official's gaffe fuels demands for answers on missing students]]></title>
+            <link>http://www.cbc.ca/news/world/mexican-official-s-gaffe-fuels-protests-in-case-of-43-missing-students-1.2828785?cmp=rss</link>
+      <guid isPermaLink="false">1.2828785</guid>
+      <pubDate>Sat, 8 Nov 2014 11:35:26 EST</pubDate>
+                        <author>The Associated Press</author>
+      							      <category>News/World</category>
+      <description>
+        <![CDATA[
+                        <img title='A female demonstrator with the number 43 painted on her face marches in protest for the disappearance of 43 students in the state of Guerrero, in Mexico City, Wednesday, Nov. 5, 2014. Federal police detained yesterday Iguala Mayor Jose Luis Abarca and his wife, Maria de los Angeles Pineda, who are accused of ordering the Sept. 26 attacks on teachers&#39; college students that left six dead and 43 still missing. (AP Photo/Marco Ugarte)' height='259' alt='Mexico Violence' width='460' src='http://i.cbc.ca/1.2829045.1415493950!/cpImage/httpImage/image.jpg_gen/derivatives/16x9_460/mexico-violence.jpg' />                <p>An off-the-cuff comment by Mexico’s attorney general about the apparent killing of 43 missing college students has become a rallying cry for protesters demanding answers from the government.</p>
+        ]]>
+      </description>
+    </item>
+    <item cbc:type="story" cbc:deptid="2.633" cbc:syndicate="true">
+      <title><![CDATA['A whole new world order': Germany marks 25 years since Berlin Wall's fall]]></title>
+            <link>http://www.cbc.ca/news/world/berlin-wall-anniversary-germany-marks-25-years-since-fall-1.2829057?cmp=rss</link>
+      <guid isPermaLink="false">1.2829057</guid>
+      <pubDate>Sat, 8 Nov 2014 21:02:04 EST</pubDate>
+                        <author>The Associated Press</author>
+      							      <category>News/World</category>
+      <description>
+        <![CDATA[
+                        <img title='Lit balloons are placed along the former Berlin Wall location near the Brandenburg Gate in Berlin November 8, 2014. A part of the inner city of Berlin will be temporarily divided from November 7 to 9, with a light installation &#39;Lichtgrenze&#39; (Border of Light) featuring 8000 luminous white balloons to commemorate the 25th anniversary of the fall of the Berlin Wall.              REUTERS/Fabrizio Bensch (GERMANY  - Tags: POLITICS ANNIVERSARY SOCIETY)   - RTR4DD3X' height='259' alt='Berlin Wall 25th anniversary' width='460' src='http://i.cbc.ca/1.2829070.1415498116!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_460/berlin-wall-25th-anniversary.jpg' />                <p>Germany is celebrating the 25th anniversary of the night the Berlin Wall fell, a pivotal moment in the collapse of communism and the start of the country's emergence as the major power at the heart of Europe.</p>
+        ]]>
+      </description>
+    </item>
+    <item cbc:type="story" cbc:deptid="2.657" cbc:syndicate="true">
+      <title><![CDATA[Sewing needle found in Halloween Snickers bar]]></title>
+            <link>http://www.cbc.ca/news/canada/ottawa/child-bites-into-snickers-bar-finds-sewing-needle-1.2829194?cmp=rss</link>
+      <guid isPermaLink="false">1.2829194</guid>
+      <pubDate>Sun, 9 Nov 2014 10:10:43 EST</pubDate>
+                        <author>CBC News</author>
+      										      <category>News/Canada/Ottawa</category>
+      <description>
+        <![CDATA[
+                        <img title='' height='259' alt='hi-ottawa-police-cruiser852' width='460' src='http://i.cbc.ca/1.1475127.1381034319!/httpImage/image.jpg_gen/derivatives/16x9_460/hi-ottawa-police-cruiser852.jpg' />                <p>Ottawa police are investigating after a 10-year-old child found a sewing needle in a Snickers bar, a treat received during Halloween trick-or-treating.</p>
+        ]]>
+      </description>
+    </item>
+    <item cbc:type="story" cbc:deptid="2.653" cbc:syndicate="true">
+      <title><![CDATA[Rain and snow wallop parts of N.L., high winds tear roof off townhouse]]></title>
+            <link>http://www.cbc.ca/news/canada/newfoundland-labrador/high-winds-tear-the-roof-off-mount-pearl-home-1.2829166?cmp=rss</link>
+      <guid isPermaLink="false">1.2829166</guid>
+      <pubDate>Sun, 9 Nov 2014 10:00:28 EST</pubDate>
+                        <author>CBC News</author>
+      										      <category>News/Canada/NL</category>
+      <description>
+        <![CDATA[
+                        <img title='The roof was torn off of three separate units of a townhouse on Galway Crescent in Mount Pearl in the high winds overnight Saturday.' height='259' alt='Roof torn off Mount Pearl home' width='460' src='http://i.cbc.ca/1.2829174.1415542649!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_460/roof-torn-off-mount-pearl-home.jpg' />                <p>High winds and rain walloped parts of Newfoundland and Labrador last night, while wild gusts ripped the roof off a townhouse in Mount Pearl.</p>
+        ]]>
+      </description>
+    </item>
+    <item cbc:type="story" cbc:deptid="2.638" cbc:syndicate="true">
+      <title><![CDATA[Keep me busy: How Princess Anne's Ottawa visit will honour 'everyday heroes']]></title>
+            <link>http://www.cbc.ca/news/canada/royal-visit-princess-anne-s-ottawa-tour-will-honour-everyday-heroes-1.2826736?cmp=rss</link>
+      <guid isPermaLink="false">1.2826736</guid>
+      <pubDate>Fri, 7 Nov 2014 21:20:09 EST</pubDate>
+                        <author>Janet Davison</author>
+      							      <category>News/Canada</category>
+      <description>
+        <![CDATA[
+                        <img title='Princess Anne smiles after a dedication ceremony at the John Buhler Research Centre, a medical research facility,  at the Health Sciences Centre in Winnipeg, Friday, July 23, 1999. The princess is in Winnipeg for the opening of the XIII Pan Am Games. (CP PHOTO/Joe Bryksa)' height='259' alt='Princess Anne PAN AM GAMES Winnipeg 1999' width='460' src='http://i.cbc.ca/1.2827601.1415378148!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_460/princess-anne-pan-am-games-winnipeg-1999.jpg' />                <p>Princess Anne, the Princess Royal, begins a two-day visit in the Ottawa region Monday that includes the annual Remembrance Day ceremony at the National War Memorial and meetings with aboriginal youth, police officers and soldiers.</p>
+        ]]>
+      </description>
+    </item>
+    <item cbc:type="story" cbc:deptid="2.657" cbc:syndicate="true">
+      <title><![CDATA[3 teenagers in hospital after Ottawa crash]]></title>
+            <link>http://www.cbc.ca/news/canada/ottawa/3-teenagers-in-hospital-after-barrhaven-crash-1.2829188?cmp=rss</link>
+      <guid isPermaLink="false">1.2829188</guid>
+      <pubDate>Sun, 9 Nov 2014 09:48:51 EST</pubDate>
+                        <author>CBC News</author>
+      										      <category>News/Canada/Ottawa</category>
+      <description>
+        <![CDATA[
+                        <img title='This vehicle struck a light standard in Barrhaven late at night on Nov. 8, 2014, sending three teenage boys to hospital.' height='259' alt='Longfields Drive crash (Nov. 8, 2014)' width='460' src='http://i.cbc.ca/1.2829192.1415544365!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_460/longfields-drive-crash-nov-8-2014.jpg' />                <p>Three teenagers were taken to hospital — one in critical condition — after the car they were travelling in struck a light standard late Saturday night.</p>
+        ]]>
+      </description>
+    </item>
+    <item cbc:type="story" cbc:deptid="2.633" cbc:syndicate="true">
+      <title><![CDATA[More than 1 million Catalonians vote in symbolic poll on split from Spain]]></title>
+            <link>http://www.cbc.ca/news/world/catalonia-vote-more-than-1-million-cast-ballots-in-symbolic-vote-1.2829203?cmp=rss</link>
+      <guid isPermaLink="false">1.2829203</guid>
+      <pubDate>Sun, 9 Nov 2014 10:44:41 EST</pubDate>
+                        <author>The Associated Press</author>
+      							      <category>News/World</category>
+      <description>
+        <![CDATA[
+                        <img title='People queue with the Estelada flag (pro-independence Catalan flag) to cast their vote at a polling station for an informal poll for the independence of Catalonia in Barcelona, Spain, Sunday, Nov. 9, 2014. The pro-independence regional government of Catalonia stages a symbolic poll on secession in a show of determination and defiance after the Constitutional Court suspended its plans to hold an official independence referendum following a legal challenge by the Spanish government.. (AP Photo/Manu Fernandez)' height='259' alt='Spain Catalonia Independence' width='460' src='http://i.cbc.ca/1.2829209.1415547491!/cpImage/httpImage/image.jpg_gen/derivatives/16x9_460/spain-catalonia-independence.jpg' />                <p>Catalonia's government said more than a million voters participated Sunday in an informal vote on whether the wealthy northeastern region should secede from the rest of Spain.</p>
+        ]]>
+      </description>
+    </item>
+    <item cbc:type="story" cbc:deptid="2.633" cbc:syndicate="true">
+      <title><![CDATA[East catching up to West in German reunification]]></title>
+            <link>http://www.cbc.ca/news/world/berlin-wall-german-reunification-a-success-story-1.2828271?cmp=rss</link>
+      <guid isPermaLink="false">1.2828271</guid>
+      <pubDate>Sun, 9 Nov 2014 05:00:00 EST</pubDate>
+                        <author>Waqas Chughtai</author>
+      							      <category>News/World</category>
+      <description>
+        <![CDATA[
+                        <img title='a concert at the Brandenburg Gate on Nov. 7 is part of the 25th anniversary celebrations. The luminous balloons mark where the Berlin Wall once stood.' height='259' alt='Berlin Wall anniversary' width='460' src='http://i.cbc.ca/1.2828375.1415403584!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_460/berlin-wall-anniversary.jpg' />                <p>The bills have totalled $3 trillion but the former East Germany is catching up to the West by many - but not all - measures.</p>
+        ]]>
+      </description>
+    </item>
+    <item cbc:type="story" cbc:deptid="2.633" cbc:syndicate="true">
+      <title><![CDATA[Queen honours war dead in U.K. Remembrance Day ceremony]]></title>
+            <link>http://www.cbc.ca/news/world/queen-honours-war-dead-in-u-k-remembrance-day-ceremony-1.2828742?cmp=rss</link>
+      <guid isPermaLink="false">1.2828742</guid>
+      <pubDate>Sun, 9 Nov 2014 07:23:47 EST</pubDate>
+                        <author>The Associated Press</author>
+      							      <category>News/World</category>
+      <description>
+        <![CDATA[
+                        <img title='Britain&#39;s Queen Elizabeth II listens during the service of remembrance at the Cenotaph in Whitehall, London, Sunday, Nov. 9, 2014. The annual service is to remember those who have lost their lives serving in the Armed Forces. (AP Photo/Tim Ireland)' height='259' alt='Britain Remembrance Sunday' width='460' src='http://i.cbc.ca/1.2829219.1415548358!/cpImage/httpImage/image.jpg_gen/derivatives/16x9_460/britain-remembrance-sunday.jpg' />                <p>Queen Elizabeth honoured fallen soldiers from Britain and the Commonwealth Sunday in a dignified ceremony at the heart of central London.</p>
+        ]]>
+      </description>
+    </item>
+    <item cbc:type="feature" cbc:deptid="2.630" cbc:syndicate="true">
+      <title><![CDATA[Berlin Wall: Before and after]]></title>
+            <link>http://www.cbc.ca/news/berlin-wall-before-and-after-1.2827755?cmp=rss</link>
+      <guid isPermaLink="false">1.2827755</guid>
+      <pubDate>Fri, 7 Nov 2014 12:41:38 EST</pubDate>
+                        <author>CBC News</author>
+      				      <category>News</category>
+      <description>
+        <![CDATA[
+                        <img title='The Berlin Wall came down on Nov. 9, 1989. These street-level images show what various locations along the border between East and West Berlin looked like then, and how they look now.' height='259' alt='Berlin Wall before and after' width='460' src='http://i.cbc.ca/1.2828879.1415473122!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_460/berlin-wall-before-and-after.jpg' />                <p>The Berlin Wall came down on Nov. 9, 1989. These street-level images show what various locations along the border between East and West Berlin looked like then, and how they look now.</p>
+        ]]>
+      </description>
+    </item>
+    <item cbc:type="story" cbc:deptid="2.646" cbc:syndicate="true">
+      <title><![CDATA[Cpl. Nathan Cirillo's death gives new meaning to Remembrance Day in Hamilton ]]></title>
+            <link>http://www.cbc.ca/news/canada/hamilton/news/cpl-nathan-cirillo-s-death-gives-new-meaning-to-hamilton-remembrance-day-events-1.2829173?cmp=rss</link>
+      <guid isPermaLink="false">1.2829173</guid>
+      <pubDate>Sun, 9 Nov 2014 09:42:34 EST</pubDate>
+                        <author>CBC News</author>
+      													      <category>News/Canada/Hamilton/News</category>
+      <description>
+        <![CDATA[
+                        <img title='The coffin of Cpl. Nathan Cirillo is towed on a gun carriage during his funeral procession in Hamilton, Ont. on Tuesday October 28, 2014. Cirillo was gunned down in last week&#39;s attack on the National War Memorial in Ottawa. THE CANADIAN PRESS/Frank Gunn' height='259' alt='Ottawa Shooting 20141028 Cpl Cirillo funeral Oct 28 2014' width='460' src='http://i.cbc.ca/1.2815806.1414516668!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_460/ottawa-shooting-20141028-cpl-cirillo-funeral-oct-28-2014.jpg' />                <p>Hamilton's Remembrance Day ceremonies will carry a new weight this year as the city honours veterans and military service members just weeks after Cpl. Nathan Cirillo was shot and killed in Ottawa.</p>
+        ]]>
+      </description>
+    </item>
+    <item cbc:type="story" cbc:deptid="2.636" cbc:syndicate="true">
+      <title><![CDATA[Outgoing Ukrainian ambassador says fight against ISIS has displaced Ukraine crisis]]></title>
+            <link>http://www.cbc.ca/news/politics/vadym-prystaiko-says-west-losing-interest-in-ukraine-1.2827717?cmp=rss</link>
+      <guid isPermaLink="false">1.2827717</guid>
+      <pubDate>Sun, 9 Nov 2014 05:00:00 EST</pubDate>
+                        <author>Jennifer Chevalier</author>
+      							      <category>News/Politics</category>
+      <description>
+        <![CDATA[
+                        <img title='Vadym Prystaiko, Ukraine&#39;s Ambassador to Canada, is shown at the Ukrainian Embassy in Ottawa on Monday, March 3, 2014. THE CANADIAN PRESS' height='259' alt='Cda Ukraine Ambassador 20140303' width='460' src='http://i.cbc.ca/1.2827902.1415385912!/cpImage/httpImage/image.jpg_gen/derivatives/16x9_460/cda-ukraine-ambassador-20140303.jpg' />                <p>The outgoing Ukrainian ambassador to Canada says the world is ignoring Ukraine in favour of fighting ISIS, and blames "low-ranking bureaucrats" for a delay in processing Canada's $200-million loan to Ukraine.</p>
+        ]]>
+      </description>
+    </item>
+  </channel>
+</rss>
