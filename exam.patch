@@ -1,0 +1,23 @@
+From cb618d0e1fc57e9fb35e457c93849291eddd3dc4 Mon Sep 17 00:00:00 2001
+From: shirashiki <silvio.hirashiki@gmail.com>
+Date: Fri, 7 Nov 2014 15:44:12 -0500
+Subject: [PATCH] branch commit
+
+---
+ Xamarin.md | 4 ++++
+ 1 file changed, 4 insertions(+)
+ create mode 100644 Xamarin.md
+
+diff --git a/Xamarin.md b/Xamarin.md
+new file mode 100644
+index 0000000..5162762
+--- /dev/null
++++ b/Xamarin.md
+@@ -0,0 +1,4 @@
++### Xamarin
++
++http://xamarin.com/getting-started/android
++test2
+-- 
+1.9.3 (Apple Git-50)
+
