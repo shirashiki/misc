@@ -1,36 +1,36 @@
 XDocument doc = XDocument.Parse (pageContents);
 
 
-			foreach (var element in doc.Root.Elements().ToList()[0].Elements()) 
-			{
-				ri = new RssItem();
-				if (element.Name == "item")
-				{
-					ri.Title = element.Element("title").Value;
-					ri.Link = new Uri(element.Element("link").Value);
-					string dateStr = (string)element.Element ("pubDate").Value;
+foreach (var element in doc.Root.Elements().ToList()[0].Elements()) 
+{
+	ri = new RssItem();
+	if (element.Name == "item")
+	{
+		ri.Title = element.Element("title").Value;
+		ri.Link = new Uri(element.Element("link").Value);
+		string dateStr = (string)element.Element ("pubDate").Value;
 
-					ri.Published = AsyncHelper.FormatDate (dateStr); 
+		ri.Published = AsyncHelper.FormatDate (dateStr); 
 
-					if (element.Element("author") != null)
-						ri.Author = element.Element("author").Value;
-						
-					var d = element.Element("description");
-					ri.Description = d.Value;
-					int index = d.Value.IndexOf("src=");
-					if (index > -1)
-					{
-						int index2 = d.Value.IndexOf(ri.Description[index + 4] == '\"' ? '\"' : '\'', index + 5);
-						string str = d.Value.Substring(index + 5, index2 - index - 5);
-						#if __IOS__
-						ri.Image = UIImage.LoadFromData(NSData.FromUrl(new NSUrl(str)));
-						#else
-						ri.Image = BitmapFactory.DecodeStream((new Java.Net.URL(str)).OpenStream());
-						#endif
-					}
-					rssItemList.Add(ri);
-				}
-			}
+		if (element.Element("author") != null)
+			ri.Author = element.Element("author").Value;
+			
+		var d = element.Element("description");
+		ri.Description = d.Value;
+		int index = d.Value.IndexOf("src=");
+		if (index > -1)
+		{
+			int index2 = d.Value.IndexOf(ri.Description[index + 4] == '\"' ? '\"' : '\'', index + 5);
+			string str = d.Value.Substring(index + 5, index2 - index - 5);
+			#if __IOS__
+			ri.Image = UIImage.LoadFromData(NSData.FromUrl(new NSUrl(str)));
+			#else
+			ri.Image = BitmapFactory.DecodeStream((new Java.Net.URL(str)).OpenStream());
+			#endif
+		}
+		rssItemList.Add(ri);
+	}
+}
 
 
 
