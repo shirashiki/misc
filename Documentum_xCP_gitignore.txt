@@ -1,0 +1,52 @@
+#####################################
+# Documentum xCP Designer gitignore
+# xCP designer is based on Eclipse. This gitignore was built based on
+# the eclipse gitignore at github, and on "EMC Documentum xCelerated 
+# Composition Platform Designer Help Version 2.1 User Guide", Working
+# with a source control system
+# Silvio Hirashiki 2014
+#################
+*.pydevproject
+.metadata
+.gradle
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# TeXlipse plugin
+.texlipse
+
+# Documentum xCP specific
+configuration/
+gen/
+META-INF/
+target/
+.index
+.generatedresources
+runapp.log
+
+# Windows stuff
+Thumbs.db
+
+# Mac stuff
+.DS_Store
