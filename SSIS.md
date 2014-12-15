@@ -1,6 +1,14 @@
 ## SQL Server Integration Services
 
 
+
+Gitignore
+
+https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
+
+
+
+
 ### Technical details
 
 #### Pipeline Architecture
@@ -18,6 +26,8 @@
 Implement one SSIS package for each dimension or fact. Manage the execution using parent packages.
 
 
+#### Terms
+- Business or Natural key: in a Dimension table, the key in the source database
 
 
 #### Misc
@@ -29,5 +39,29 @@ Implement one SSIS package for each dimension or fact. Manage the execution usin
 - Checkpoint files saves state, saving variable values
 - Executing: DTExecUI: graphical, generates also the arguments
 - DTExec (the one I use most)
+- Inferred members: need to get more info
+
+
+
+#### Data Warehousing and SSIS
+Use data profiling task to understand how the source data is organized. In the Data Profile Viewer we can get information to better structure a OLAP model.
+
+- How to sync removed row from fact tables?
+
+#### ETL Design Patterns
+- Master Extract: uses Staging database
+	- SQL Audit begin
+	- Extract to Staging
+	- Count rows
+	- SQL Audit ends
+
+- Master Transform-Load: need to load Dimensions first, then Facts
+
+Microsoft Data Warehouse toolkit
+http://tinyurl.com/qf84vl7
+
+
+Using Star Join and Few-Outer Row Optimizations to improve DW http://msdn.microsoft.com/en-us/library/gg567299.aspx
+
 
 
