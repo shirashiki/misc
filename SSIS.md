@@ -9,6 +9,9 @@ https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 
 
+
+
+
 ### Technical details
 
 #### Pipeline Architecture
@@ -40,7 +43,8 @@ Implement one SSIS package for each dimension or fact. Manage the execution usin
 - Executing: DTExecUI: graphical, generates also the arguments
 - DTExec (the one I use most)
 - Inferred members: need to get more info
-
+- (Unit and Integration Testing of SSIS Packages)[http://msdn.microsoft.com/en-us/magazine/dn342874.aspx]
+- https://ssisunit.codeplex.com/
 
 
 #### Data Warehousing and SSIS
