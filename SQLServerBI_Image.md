@@ -14,3 +14,6 @@ Component | Description
 Host | Ubuntu Desktop 14.04 amd64
 VirtualBox | 4.3
 
+
+### References
+- [VirtualBox Installation](https://help.ubuntu.com/community/VirtualBox/Installation)
