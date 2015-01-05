@@ -27,9 +27,15 @@ Install VirtualBox running:
 sudo sh -c "echo 'deb http://download.virtualbox.org/virtualbox/debian '$(lsb_release -cs)' contrib non-free' > /etc/apt/sources.list.d/virtualbox.list" && wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add - && sudo apt-get update && sudo apt-get install virtualbox-4.3 dkms
 '''
 
+#### Vagrant installation
 
+Install Vagrant:
 
+'''
+sudo apt-get install vagrant
+'''
 
+Install Vagrant extensions
 
 ### References
 - [Installing Vagrant and Virtual box on Ubuntu 14.04 LTS](http://www.olindata.com/blog/2014/07/installing-vagrant-and-virtual-box-ubuntu-1404-lts)
