@@ -29,18 +29,57 @@ sudo sh -c "echo 'deb http://download.virtualbox.org/virtualbox/debian '$(lsb_re
 
 #### Vagrant installation
 
-Install Vagrant:
+* Install Vagrant *
 
 ```
 sudo apt-get install vagrant
 ```
 
-Install Vagrant extensions
+* Install Vagrant plugins *
+
+```
+vagrant plugin install vagrant-windows
+```
+
+* Get a Vagrant Box *
+http://blog.syntaxc4.net/post/2014/09/03/windows-boxes-for-vagrant-courtesy-of-modern-ie.aspx
+
+
+* Add the downloaded box to Vagrant*
+
+Open a shell, go to the directory where you downloaded the box and run:
+
+```
+vagrant box add windows7 IE11.Win7.For.Vagrant.box
+```
+
+This will add to Vagrant a box called "windows7" (you can use other name). Result:
+
+```
+Downloading box from URL: file:/home/chugaboo/IE11.Win7.For.Vagrant.box
+Extracting box...te: 96.5M/s, Estimated time remaining: 0:00:01)
+Successfully added box 'windows7' with provider 'virtualbox'!
+```
+
+#### Create a Vagrant Project
+
+
+
+
+
 
 
 ### Misc
 
-#### Adding Host-Only networking in VirtualBox
+#### Setting Up Windows 2008 R2 in VirtualBox 
+
+* Setting Up the VM *
+
+- Use IDE Instead Of SATA. In VM Settings > Storage, put your disk under an IDE controller. Controller IDE config: Type = PIIX4, Use Host I/O Cache = On
+- In VM Settings > Processor > Extended Features > Enable PAE/NX = On
+
+
+* Adding Host-Only networking *
 
 You can add new adapter at File - Preferences - Network.
 
