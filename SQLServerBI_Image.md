@@ -89,3 +89,5 @@ You can add new adapter at File - Preferences - Network.
 - [Create a windows base box for vagrant](http://www.thomasvjames.com/2013/09/create-a-windows-base-box-for-vagrant/)
 - [Installing Vagrant and Virtual box on Ubuntu 14.04 LTS](http://www.olindata.com/blog/2014/07/installing-vagrant-and-virtual-box-ubuntu-1404-lts)
 - [VirtualBox Installation](https://help.ubuntu.com/community/VirtualBox/Installation)
+- [Virtualize Your Windows Development Environments with Vagrant, Packer, and Chocolatey, Part 1](http://www.developer.com/net/virtualize-your-windows-development-environments-with-vagrant-packer-and-chocolatey-part-1.html)
+
