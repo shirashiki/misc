@@ -1,5 +1,12 @@
 ### Python kbase
 
+#### Setting Up a Workstation
+- [Setting up Sublime Text for Python development](http://dbader.org/blog/setting-up-sublime-text-for-python-development)
+- [Python development with Sublime](http://outofmemoryblog.blogspot.ca/2012/08/python-development-with-sublime-text-2.html)
+- [Install Pycharm on Ubuntu](http://www.bonusbits.com/main/HowTo:Install_PyCharm_on_Ubuntu)
+
+
+#### Uncategorized
 
 http://docs.python-guide.org/en/latest/writing/structure/
 http://www.slideshare.net/pydanny/python-worst-practices
