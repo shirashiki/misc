@@ -19,9 +19,9 @@ When starting the machine in the first time, received message "Your PC needs to 
 VBoxManage setextradata Win2012R2 VBoxInternal/CPUM/CMPXCHG16B 1
 ```
 
-* References *
 
-[Windows 2012 Server R2 preview installation fails: Your PC needs to restart | Please hold down the power button | Error Code 0x000000C4](https://www.virtualbox.org/ticket/11899)
+#### References
+- [Windows 2012 Server R2 preview installation fails: Your PC needs to restart | Please hold down the power button | Error Code 0x000000C4](https://www.virtualbox.org/ticket/11899)
 
 
 
