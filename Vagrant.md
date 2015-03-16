@@ -71,11 +71,18 @@ Base Windows Configuration
 
 - Turn off UAC
 - Disable complex passwords
-- Disable "Shutdown Tracker"
+- Disable "Shutdown Tracker".
 - Disable "Server Manager" starting at login (for non-Core)
-
-
-
-
 - In Virtualbox, go to the VM, change Network Adapter 1 to NAT
 - Take note of the Mac Address
+
+
+```
+vagrant package --base <vm name>
+```
+
+```
+vagrant box add windows2012 package.box
+vagrant init windows2012
+vagrant up
+```
