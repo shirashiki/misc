@@ -86,3 +86,17 @@ vagrant box add windows2012 package.box
 vagrant init windows2012
 vagrant up
 ```
+
+## Get a Vagrant box from a repository
+
+The url for a box follows the pattern:
+
+```
+https://vagrantcloud.com/USERNAME/boxes/BOXNAME/versions/VERSION/providers/PROVIDER.box
+```
+
+Example: suppose you want this box https://atlas.hashicorp.com/lmayorga1980/boxes/windows-2008r2, which offers virtualbox; select a version, then run:
+
+```
+vagrant box add lmayorga1980/windows-2008r2 https://atlas.hashicorp.com/lmayorga1980/boxes/windows-2008r2/versions/0.1.0/providers/virtualbox.box
+``
