@@ -95,8 +95,9 @@ The url for a box follows the pattern:
 https://vagrantcloud.com/USERNAME/boxes/BOXNAME/versions/VERSION/providers/PROVIDER.box
 ```
 
-Example: suppose you want this box https://atlas.hashicorp.com/lmayorga1980/boxes/windows-2008r2, which offers virtualbox; select a version, then run:
+Example: suppose you want the box https://atlas.hashicorp.com/lmayorga1980/boxes/windows-2008r2, which offers virtualbox; select a version, then run:
 
 ```
 vagrant box add lmayorga1980/windows-2008r2 https://atlas.hashicorp.com/lmayorga1980/boxes/windows-2008r2/versions/0.1.0/providers/virtualbox.box
-``
+```
+
