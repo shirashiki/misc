@@ -67,14 +67,50 @@ dism /online /enable-feature /featurename:netfx3 /all /source:<dvd installer dri
 
 See http://docs.vagrantup.com/v2/boxes/base.html
 
-Base Windows Configuration
+### Base Windows Configuration (windows 2008 R2)
 
-- Turn off UAC
-- Disable complex passwords
-- Disable "Shutdown Tracker".
-- Disable "Server Manager" starting at login (for non-Core)
+#### Turn off UAC
+Turn off User Account Control in Windows 2008 (R2)
+
+
+In Windows 2008
+
+1. Click Start, and then click Control Panel.
+
+2. In Control Panel, click User Accounts.
+
+3. In the User Accounts window, click User Accounts.
+
+4. In the User Accounts tasks window, click Turn User Account Control on or off.
+
+5. If UAC is currently configured in Admin Approval Mode, the User Account Control message appears. Click Continue.
+
+6. Clear the Use User Account Control (UAC) to help protect your computer check box, and then click OK.
+
+7. Click Restart Now to apply the change right away, or click Restart Later and close the User Accounts tasks window.
+
+
+#### Disable complex passwords
+http://www.blueshiftblog.com/?p=2058
+
+
+#### Disable "Shutdown Tracker".
+http://blogs.technet.com/b/chenley/archive/2011/03/05/how-to-disable-the-shutdown-tracker-in-windows-server-2008-r2.aspx
+
+
+#### Disable "Server Manager" starting at login (for non-Core)
+https://social.technet.microsoft.com/Forums/windowsserver/en-US/618a488c-0e7a-4eec-b990-fc6c753db6f5/how-do-you-stop-the-server-manager-from-loading-up-at-startup-on-server-8?forum=winserver8gen
+
+
+#### Virtualbox stuff
 - In Virtualbox, go to the VM, change Network Adapter 1 to NAT
 - Take note of the Mac Address
+
+Resources
+https://techontip.wordpress.com/2010/06/02/turn-off-user-account-control-in-windows-2008-r2/
+
+
+
 
 
 ```
