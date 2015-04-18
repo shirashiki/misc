@@ -19,7 +19,7 @@ This guide refers to and uses [Microsoft](www.microsoft.com) software. I encoura
 | CPU quantity | 2|
 | Memory | 3600MB |
 
-### Additional Configuration
+### Additional Configuration (windows 2012R2)
 
 When starting the machine in the first time, received message "Your PC needs to restart".
 ```
@@ -105,11 +105,11 @@ https://social.technet.microsoft.com/Forums/windowsserver/en-US/618a488c-0e7a-4e
 #### Virtualbox stuff
 - In Virtualbox, go to the VM, change Network Adapter 1 to NAT
 - Take note of the Mac Address
+- Remember that to access a VM, you need also to have an additional adapter Host-Only networking,
+so you can access the vm through the host.
 
 Resources
 https://techontip.wordpress.com/2010/06/02/turn-off-user-account-control-in-windows-2008-r2/
-
-
 
 
 
@@ -136,4 +136,27 @@ Example: suppose you want the box https://atlas.hashicorp.com/lmayorga1980/boxes
 ```
 vagrant box add lmayorga1980/windows-2008r2 https://atlas.hashicorp.com/lmayorga1980/boxes/windows-2008r2/versions/0.1.0/providers/virtualbox.box
 ```
+
+## Important Vagrant commands
+
+*List existing boxes*
+```
+vagrant box list
+```
+
+*Remove a box*
+```
+vagrant box remove BOXNAME
+```
+
+*Shutdown box*
+```
+vagrant halt
+```
+
+
+#### References
+- [Vagrant command line interface](http://docs.vagrantup.com/v2/cli/index.html)
+
+
 
