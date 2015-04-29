@@ -1,6 +1,30 @@
-### Docker
+## Docker
 
+### Basics
 - A Docker container image is organized in layers
+
+### Commands
+
+https://docs.docker.com/reference/commandline/cli/
+
+List installed images
+```
+docker images
+```
+
+Run an image
+```
+docker run -i -t <imagename>
+```
+
+Pull an image or a repository from the registry
+```
+docker pull [OPTIONS] NAME[:TAG]
+``
+See the registry hub for images
+https://registry.hub.docker.com/
+
+
 
 #### Java and Docker
 
