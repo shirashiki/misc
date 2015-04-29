@@ -20,9 +20,9 @@ docker run -i -t <imagename>
 Pull an image or a repository from the registry
 ```
 docker pull [OPTIONS] NAME[:TAG]
-``
-See the registry hub for images
-https://registry.hub.docker.com/
+```
+
+See the registry hub for images: https://registry.hub.docker.com/
 
 
 
