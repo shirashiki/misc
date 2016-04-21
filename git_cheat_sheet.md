@@ -1,5 +1,10 @@
 ## Git Cheat sheet
 
+### Some tools to have
+
+- Use Atom editor to preview Markdown files.
+
+
 ### Configuring Git
 
 - Make code changes more visible:
@@ -14,7 +19,10 @@
 
 The simplest way to use git, use this when you want to work alone directly in master.
 
-- Update the branch in local repository, getting contents from remote.Go to the repository and then do:
+- Getting files from a remote branch (first time). This will download the repo in your machine.
+`git clone <repo url>`
+
+- Update the branch in local repository, getting contents from remote. Go to the repository and then do:
 
 `$ git pull`
 
