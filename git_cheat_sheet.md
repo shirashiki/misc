@@ -79,4 +79,4 @@ https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History
 
 https://stackoverflow.com/questions/8533202/list-files-in-local-git-repo
 
-
+https://coderwall.com/p/lz0uva/find-all-files-modified-between-commits-in-git
