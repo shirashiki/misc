@@ -1,7 +1,6 @@
 ## Git Cheat sheet
 
 
-
 ### Some tools to have
 
 - Use Atom editor to preview Markdown files.
@@ -62,7 +61,7 @@ git branch mydev
 git checkout mydev
 
 # list branches (all)
-git branch -a 
+git branch -a
 
 
 # lists all files
