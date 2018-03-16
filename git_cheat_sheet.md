@@ -3,15 +3,17 @@
 
 ### Some tools to have
 
-- Use Atom editor to preview Markdown files.
+Use Atom editor to preview Markdown files.
 
 ### Configuring Git
 
-- Make code changes more visible:
+Make code changes more visible:
 
+```
 git config --global color.ui true
+```
 
-- Merging code: you can install Meld: http://www.meldmerge.org/
+Merging code: you can install Meld: http://www.meldmerge.org/
 
 
 ### Use scenarios
@@ -21,51 +23,76 @@ git config --global color.ui true
 The simplest way to use git, use this when you want to work alone directly in master.
 
 - Getting files from a remote branch (first time). This will download the repo in your machine.
+```
 git clone <repo url>
+```
+
 
 - Update the branch in local repository, getting contents from remote. Go to the repository and then do:
+```
+git pull
+```
 
-$ git pull
 
 - Change files in your local repo. Here you update your code.
 
 - Add ALL changes to the commit. This adds all changes made to the next commit (commits are atomic), including file deletions.
-
-$ git add -A
+```
+git add -A
+```
 
 - Commit changes in the local repo.
+```
+git commit -m "label"  -m "message bla bla"
+```
 
-$ git commit -m "label"  -m "message bla bla"
 
 - Push to remote repo
-
-$ git push
+```
+git push
+```
 
 - And you can check the status of the repository doing:
 
-$ git status
+git status
 
 
 
 
 
 # Create repo local
+```
 git init
 
 git add .gitignore
+```
 
 
 # create a branch and go to this branch
-git branch mydev
+```
+git branch mydevbranch
 
-git checkout mydev
+git checkout mydevbranch
+```
 
 # list branches (all)
+```
 git branch -a
+```
 
 
 # lists all files
+```
 git ls-tree --full-tree -r HEAD
+```
+
+# Get the commit log
+
+This will get the last 2 commit entries
+
+```
+git log -2
+```
 
 
 #### Reference
