@@ -43,9 +43,13 @@ git add -A
 
 - Commit changes in the local repo.
 ```
-git commit -m "label"  -m "message bla bla"
+git commit -m "updated"
 ```
 
+to put a message
+```
+git commit --message "I worked a lot"
+```
 
 - Push to remote repo
 ```
@@ -92,6 +96,17 @@ This will get the last 2 commit entries
 
 ```
 git log -2
+```
+
+# Get a specific version, copying to another location
+
+Go to the repo misc and create a work tree in the same level
+```
+git worktree add ../misc2
+```
+
+```
+git --work-tree=../misc2 checkout a06c1177df71e7ad36e8749c72007ef0a6fe9c98 -- .
 ```
 
 
