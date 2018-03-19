@@ -56,10 +56,15 @@ git commit --message "I worked a lot"
 git push
 ```
 
+- List files in a commit
+```
+git diff-tree --no-commit-id --name-only -r <commit identifier>
+```
+
 - And you can check the status of the repository doing:
-
+```
 git status
-
+```
 
 
 
